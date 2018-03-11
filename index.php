@@ -7,7 +7,7 @@ if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 
-	$questionType = $json->queryResult->parameters->questionType;
+	$questionType = $json->result->parameters->questionType;
 	$speech = "sorry";
 
 	$response = new \stdClass();
