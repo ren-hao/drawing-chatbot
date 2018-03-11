@@ -7,25 +7,8 @@ if($method == 'POST'){
 	$requestBody = file_get_contents('php://input');
 	$json = json_decode($requestBody);
 
-	$questionType = $json->result->parameters->questionType;
-
-	switch ($questionType[0]) {
-		case 'hi':
-			$speech = "Hi, Nice to meet you";
-			break;
-
-		case 'bye':
-			$speech = "Bye, good night";
-			break;
-
-		case 'anything':
-			$speech = "Yes, you can type anything here.";
-			break;
-
-		default:
-			$speech = "Sorry, I didnt get that. Please ask me something else.";
-			break;
-	}
+	$questionType = $json->queryResult->parameters->questionType;
+	$speech = "sorry";
 
 	$response = new \stdClass();
 	$response->speech = $speech;
