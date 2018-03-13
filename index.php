@@ -12,22 +12,23 @@ if($method == 'POST'){
 	$speech = "sorry";
 
     $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $questionType[0];
-    $content = file($url);
+    $content = file_get_contents($url);
 
     $responseCount = count($responseSetJson->imageUrl);
     $image = $responseSetJson->imageUrl[rand(0, $responseCount - 1)];
 
     $messages = array(
         array(
-        "type" => 0,
-        "platform" => "facebook",
-        "speech" => "sever response"
+			"type" => 0,
+			"platform" => "facebook",
+			"speech" => $url,
+			"content" => "server meow meow"
     	),
-        array(
-            "type" => 3,
-            "platform" => "facebook",
-            "imageUrl" => $image
-        )
+		array(
+			"type" => 3,
+			"platform" => "facebook",
+			"imageUrl" => $image
+		)
     );
 
 
