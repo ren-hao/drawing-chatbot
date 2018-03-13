@@ -10,11 +10,24 @@ if($method == 'POST'){
 	$questionType = $json->result->parameters->questionType;
 	$speech = "sorry";
 
+    $messages = array(
+            array(
+                "type" => 3,
+                "platform" => "facebook",
+                "imageUrl" => "https://i.imgur.com/AD3MbBi.jpg"
+            ),
+            array(
+                "type" => 0,
+                "platform" => "facebook",
+                "speech" => "server response"
+			)
+    );
+
 	$response = new \stdClass();
 	$response->speech = $speech;
 	$response->displayText = $speech;
 	$response->source = "webhook";
-	$response->questionType = $questionType[0];
+	$response->messages = $messages;
 	echo json_encode($response);
 }
 else
