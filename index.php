@@ -21,8 +21,7 @@ if($method == 'POST'){
         array(
 			"type" => 0,
 			"platform" => "facebook",
-			"speech" => $url,
-			"content" => "server meow meow"
+			"speech" => "provide " .$questionType[0] . ". server meow meow"
     	),
 		array(
 			"type" => 3,
