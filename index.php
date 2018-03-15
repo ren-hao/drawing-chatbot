@@ -13,7 +13,7 @@ if($method == 'POST'){
 
 	
 
-    $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $anyText;
+    $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $anyText[0];
 
     $ch = curl_init();
     $timeout = 5;
