@@ -15,6 +15,7 @@ if($method == 'POST'){
 
     $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $anyText;
 
+	/*
     $ch = curl_init();
     $timeout = 25;
     curl_setopt($ch, CURLOPT_URL, $url);
@@ -23,6 +24,9 @@ if($method == 'POST'){
     $contents = curl_exec($ch);
     curl_close($ch);
     $contents = htmlentities($contents,ENT_QUOTES,"UTF-8");
+    */
+    $contents = file($url);	
+	
     $tp = $contents;	
     $k = strpos($contents,"userHtml");
     $contents = substr($contents, $k+17);
