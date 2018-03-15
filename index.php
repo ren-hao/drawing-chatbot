@@ -27,7 +27,7 @@ if($method == 'POST'){
     $contents = substr($contents, $k+17);
     $k = strpos($contents,"x22");
     $contents = substr($contents, 0,$k-1);
-    $speech =  $contents;
+    $speech =  'Test';
 	
     $responseCount = count($responseSetJson->imageUrl);
     $image = $responseSetJson->imageUrl[rand(0, $responseCount - 1)];
