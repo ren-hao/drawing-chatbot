@@ -13,7 +13,7 @@ if($method == 'POST'){
 
 	$ctext = urlencode($anyText);
 
-    $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $cText;
+    $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $ctext;
 
 	
     $ch = curl_init();
