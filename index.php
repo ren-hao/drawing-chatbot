@@ -9,11 +9,27 @@ if($method == 'POST'){
 	$json = json_decode($requestBody);
 	$responseSetJson = json_decode($responseSet);
 	$questionType = $json->result->parameters->questionType;
-	$speech = "sorry";
+	$anyText = $json->result->parameters->any;	
 
-    $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $questionType[0];
-    $content = file_get_contents($url);
+	
 
+    $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $anyText;
+
+    $ch = curl_init();
+    $timeout = 5;
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+    $contents = curl_exec($ch);
+    curl_close($ch);
+    $contents = htmlentities($contents,ENT_QUOTES,"UTF-8");
+    $k = strpos($contents,"userHtml");
+    $contents = substr($contents, $k+17);
+    $k = strpos($contents,"x22");
+    $contents = substr($contents, 0,$k-1);
+
+    $speech =  $contents;
+	
     $responseCount = count($responseSetJson->imageUrl);
     $image = $responseSetJson->imageUrl[rand(0, $responseCount - 1)];
 
@@ -21,7 +37,7 @@ if($method == 'POST'){
         array(
 			"type" => 0,
 			"platform" => "facebook",
-			"speech" => "provide " .$questionType[0] . ". server meow meow"
+			"speech" => $contents
     	),
 		array(
 			"type" => 3,
