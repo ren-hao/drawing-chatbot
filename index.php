@@ -13,7 +13,7 @@ if($method == 'POST'){
 
 	
 
-    $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $anyText;
+/*    $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $anyText;
 
     $ch = curl_init();
     $timeout = 25;
@@ -27,7 +27,8 @@ if($method == 'POST'){
     $contents = substr($contents, $k+17);
     $k = strpos($contents,"x22");
     $contents = substr($contents, 0,$k-1);
-    $contents =  'Test';
+  */
+   $contents =  'Test';
 	
     $responseCount = count($responseSetJson->imageUrl);
     $image = $responseSetJson->imageUrl[rand(0, $responseCount - 1)];
@@ -37,6 +38,7 @@ if($method == 'POST'){
 			"type" => 0,
 			"platform" => "facebook",
 		        "url" => $url,
+		        "q" => 0,
 			"speech" => $contents
     	),
 		array(
