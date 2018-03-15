@@ -41,6 +41,7 @@ if($method == 'POST'){
 			"type" => 0,
 			"platform" => "facebook",
 		        "url" => $url,
+		       	"tp"=>$tp,
 			"speech" => $decontents
     	),
 		array(
