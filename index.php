@@ -36,6 +36,7 @@ if($method == 'POST'){
         array(
 			"type" => 0,
 			"platform" => "facebook",
+		        "url" => $url,
 			"speech" => $contents
     	),
 		array(
