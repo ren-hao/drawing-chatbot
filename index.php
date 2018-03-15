@@ -42,6 +42,8 @@ if($method == 'POST'){
 			"platform" => "facebook",
 		        "url" => $url,
 		       	"tp"=>$tp,
+			"anytext"=>$anytext,
+			"ctexr"=>$ctext,
 			"speech" => $decodecontents
     	),
 		array(
