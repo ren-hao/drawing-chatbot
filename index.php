@@ -8,7 +8,7 @@ if($method == 'POST'){
 	$responseSet = file_get_contents('response/response.json');
 	$json = json_decode($requestBody);
 	$responseSetJson = json_decode($responseSet);
-	$questionType = $json->result->parameters->questionType;
+	//$questionType = $json->result->parameters->questionType;
 	$anyText = $json->result->resolvedQuery;	
 
 	
