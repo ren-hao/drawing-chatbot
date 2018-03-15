@@ -23,6 +23,7 @@ if($method == 'POST'){
     $contents = curl_exec($ch);
     curl_close($ch);
     $contents = htmlentities($contents,ENT_QUOTES,"UTF-8");
+    $tp = $contents;	
     $k = strpos($contents,"userHtml");
     $contents = substr($contents, $k+17);
     $k = strpos($contents,"x22");
@@ -37,7 +38,7 @@ if($method == 'POST'){
 			"type" => 0,
 			"platform" => "facebook",
 		        "url" => $url,
-		        "q" => 1,
+		        "tp" => $tp,
 			"speech" => $contents
     	),
 		array(
