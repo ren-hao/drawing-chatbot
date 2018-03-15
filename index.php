@@ -42,7 +42,7 @@ if($method == 'POST'){
 			"platform" => "facebook",
 		        "url" => $url,
 		       	"tp"=>$tp,
-			"speech" => $decontents
+			"speech" => $decodecontents
     	),
 		array(
 			"type" => 3,
