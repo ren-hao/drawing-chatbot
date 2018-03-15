@@ -15,17 +15,16 @@ if($method == 'POST'){
 
     $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $anyText;
 
-	/*
+	
     $ch = curl_init();
-    $timeout = 25;
+    $timeout = 0;
     curl_setopt($ch, CURLOPT_URL, $url);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
     $contents = curl_exec($ch);
     curl_close($ch);
     $contents = htmlentities($contents,ENT_QUOTES,"UTF-8");
-    */
-    $contents = file_get_contents($url);	
+    
 	
     $tp = $contents;	
     $k = strpos($contents,"userHtml");
@@ -42,7 +41,7 @@ if($method == 'POST'){
 			"type" => 0,
 			"platform" => "facebook",
 		        "url" => $url,
-			"v" => 1,
+			"v" => 2,
 		        "tp" => $tp,
 			"speech" => $contents
     	),
