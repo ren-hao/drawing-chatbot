@@ -15,6 +15,9 @@ if($method == 'POST'){
 
     $url = 'https://script.google.com/macros/s/AKfycbxwZtpnWeyD0ar-rvQCp5OMk_Dq7F0ST-5p41EIvGt_OFflh6Q1/exec?i=' . $ctext;
 
+	$parameter = "php(parameter)";
+	exec("python test.py ".$parameter, $output);
+	// $output[0] 是python回傳的'
 	
     $ch = curl_init();
     $timeout = 0;
@@ -37,6 +40,11 @@ if($method == 'POST'){
     $image = $responseSetJson->imageUrl[rand(0, $responseCount - 1)];
 
     $messages = array(
+        array(
+			"type" => 0,
+			"platform" => "facebook",
+			"speech" => $output[0]
+    	),	
         array(
 			"type" => 0,
 			"platform" => "facebook",
